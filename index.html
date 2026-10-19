@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tmkhamikh | Homemade Tunisian food, made to order</title>
+<meta name="description" content="Homemade Tunisian dishes cooked fresh and delivered to your door. Order by phone or WhatsApp.">
+<meta property="og:title" content="tmkhamikh">
+<meta property="og:description" content="Homemade Tunisian dishes cooked fresh and delivered to your door.">
+<meta property="og:url" content="https://tmkhamikh.me">
+<meta name="theme-color" content="#1f4e8c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1f4e8c;
+    --harissa:#c8321e;
+    --saffron:#f2b01e;
+    --paper:#f6f9fb;
+    --ink:#18202c;
+    --muted:#55627a;
+    --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+    --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:1.0625rem}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+
+  /* Hero */
+  .hero{background:var(--blue);color:#fff;position:relative;overflow:hidden;padding:1.25rem 0 5rem}
+  .hero::before{ /* tile pattern, nods to Tunisian zellige */
+    content:"";position:absolute;inset:0;opacity:.13;
+    background:
+      conic-gradient(from 45deg at 50% 50%,#fff 0 25%,transparent 0 50%,#fff 0 75%,transparent 0) 0 0/56px 56px;
+    mask-image:linear-gradient(115deg,transparent 35%,#000 100%);
+    -webkit-mask-image:linear-gradient(115deg,transparent 35%,#000 100%);
+  }
+  nav{position:relative;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-weight:500}
+  nav .logo{font-family:var(--display);font-weight:800;font-size:1.25rem;text-decoration:none}
+  nav ul{display:flex;gap:1.5rem;list-style:none}
+  nav a{text-decoration:none}
+  nav ul a:hover{text-decoration:underline;text-underline-offset:4px}
+  .hero-body{position:relative;padding-top:4.5rem}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(3.4rem,13vw,9rem);line-height:.92;letter-spacing:-.03em}
+  .tag{margin-top:1.5rem;max-width:30rem;font-size:1.25rem}
+  .cta-row{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem}
+  .btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-main{background:var(--saffron);color:var(--ink)}
+  .btn-alt{border-color:#fff;color:#fff}
+
+  /* Sections */
+  section{padding:4.5rem 0}
+  h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,5vw,3rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:.75rem}
+  .lead{color:var(--muted);max-width:36rem;margin-bottom:2.5rem}
+
+  /* Menu */
+  .menu{list-style:none;border-top:2px solid var(--ink)}
+  .menu li{display:grid;grid-template-columns:1fr auto;gap:.25rem 1.5rem;padding:1.15rem 0;border-bottom:1px solid #cdd6e0}
+  .menu h3{font-family:var(--display);font-weight:500;font-size:1.35rem}
+  .menu p{grid-column:1;color:var(--muted);font-size:1rem}
+  .price{grid-row:1;grid-column:2;font-family:var(--display);font-weight:800;color:var(--harissa);font-size:1.25rem;white-space:nowrap}
+  .note{margin-top:1rem;color:var(--muted);font-size:.95rem}
+
+  /* Order steps */
+  .order{background:#fff;border-top:1px solid #dde5ee;border-bottom:1px solid #dde5ee}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;border-top:4px solid var(--harissa);padding-top:1rem}
+  .steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2rem;color:var(--harissa)}
+  .steps h3{font-family:var(--display);font-size:1.25rem;font-weight:500;margin:.25rem 0}
+  .steps p{color:var(--muted)}
+
+  /* About */
+  .about{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+  .about p+p{margin-top:1rem}
+  .facts{background:var(--blue);color:#fff;border-radius:1rem;padding:1.75rem}
+  .facts dt{font-weight:600;color:var(--saffron)}
+  .facts dd{margin-bottom:1rem}
+  .facts dd:last-child{margin-bottom:0}
+
+  /* Contact */
+  .contact{background:var(--harissa);color:#fff;text-align:center}
+  .contact h2{margin-bottom:1rem}
+  .contact p{max-width:30rem;margin:0 auto 2rem}
+  .contact .cta-row{justify-content:center}
+  .contact .btn-main{background:#fff;color:var(--harissa)}
+  .contact .btn-alt{border-color:#fff}
+
+  footer{padding:2rem 0;text-align:center;color:var(--muted);font-size:.95rem}
+
+  @media (max-width:760px){
+    nav ul{display:none}
+    .steps{grid-template-columns:1fr;gap:1.5rem}
+    .about{grid-template-columns:1fr;gap:2rem}
+    section{padding:3.5rem 0}
+    .hero-body{padding-top:3rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#">tmkhamikh</a>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#order">How to order</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-body">
+      <h1>tmkhamikh</h1>
+      <p class="tag">Homemade Tunisian food, cooked fresh to order and delivered to your door.</p>
+      <div class="cta-row">
+        <!-- TODO: replace the phone number (international format, no + or spaces) -->
+        <a class="btn btn-main" href="https://wa.me/21600000000">Order on WhatsApp</a>
+        <a class="btn btn-alt" href="#menu">See the menu</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="menu">
+    <div class="wrap">
+      <h2>This week's menu</h2>
+      <p class="lead">Everything is cooked the day you order it. Prices are in Tunisian dinars.</p>
+      <!-- TODO: replace these sample dishes and prices with your own -->
+      <ul class="menu">
+        <li><h3>Couscous with lamb</h3><span class="price">18 TND</span><p>Hand-rolled semolina, tender lamb, chickpeas and seasonal vegetables.</p></li>
+        <li><h3>Brik à l'œuf (x2)</h3><span class="price">6 TND</span><p>Crisp pastry, tuna, capers, parsley and a soft egg.</p></li>
+        <li><h3>Ojja merguez</h3><span class="price">12 TND</span><p>Spicy tomato and harissa stew with merguez and eggs, served with bread.</p></li>
+        <li><h3>Lablabi</h3><span class="price">7 TND</span><p>Chickpea soup with cumin, garlic, olive oil and an egg.</p></li>
+        <li><h3>Makroudh (box of 10)</h3><span class="price">9 TND</span><p>Semolina and date pastries, fried and dipped in honey.</p></li>
+      </ul>
+      <p class="note">Ask about today's specials and large orders for family meals or events.</p>
+    </div>
+  </section>
+
+  <section id="order" class="order">
+    <div class="wrap">
+      <h2>How to order</h2>
+      <p class="lead">Three steps, no app needed.</p>
+      <ol class="steps">
+        <li><h3>Choose</h3><p>Pick your dishes from the menu above.</p></li>
+        <li><h3>Message us</h3><p>Send your order, address and preferred time by WhatsApp or phone.</p></li>
+        <li><h3>Enjoy</h3><p>We cook it fresh and bring it to you. Pay on delivery.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>Cooked the way it is at home</h2>
+        <p>tmkhamikh is a small kitchen making Tunisian recipes from scratch: real spices, good olive oil and no shortcuts.</p>
+        <p>Every batch is small, so every plate is made with attention. Tell us about allergies or spice levels and we will adjust.</p>
+      </div>
+      <!-- TODO: update area, hours and lead time -->
+      <dl class="facts">
+        <dt>Delivery area</dt><dd>Your city and nearby areas</dd>
+        <dt>Hours</dt><dd>Every day, 11:00 to 21:00</dd>
+        <dt>Order ahead</dt><dd>At least 2 hours before delivery</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Hungry? Order now.</h2>
+      <p>The fastest way to reach us is WhatsApp. We reply within minutes during opening hours.</p>
+      <div class="cta-row">
+        <a class="btn btn-main" href="https://wa.me/21600000000">WhatsApp</a>
+        <a class="btn btn-alt" href="tel:+21600000000">Call us</a>
+        <a class="btn btn-alt" href="https://instagram.com/tmkhamikh">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="y">2026</span> tmkhamikh &middot; tmkhamikh.me</div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
